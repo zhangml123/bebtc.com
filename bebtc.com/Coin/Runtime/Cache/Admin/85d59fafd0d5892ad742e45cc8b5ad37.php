@@ -1,0 +1,98 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/Public/Admin/css/login.css">
+    <script type="text/javascript" src="/Public/Admin/js/jquery.min.js"></script>
+	<title>后台登陆</title>
+</head>
+<body>
+	<div id="login_top">
+		<div id="welcome">
+			欢迎使用系统
+		</div>
+		<div id="back">
+			<a href="#">返回首页</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+			<a href="#">帮助</a>
+		</div>
+	</div>
+	<div id="login_center">
+		<div id="login_area">
+			<div id="login_form">
+
+					<div id="login_tip">
+						用户登录&nbsp;&nbsp;UserLogin
+					</div>
+					<div><input type="text" class="username" name="username"></div>
+					<div><input type="password" class="pwd" name="pwd"></div>
+					<div id="btn_area">
+						<input type="button" name="submit" id="sub_btn" value="登&nbsp;&nbsp;录">&nbsp;&nbsp;
+						<input type="text" class="verify" name="code">
+						<img src="<?php echo U('Verify');?>" id="verify" width="80" height="40">
+					</div>
+				
+				<script>
+				
+				//验证码刷新功能 control在HTML页面定义了/Admin/Login verify路径 math.random跟上随进数 ，随机数变动就更新了
+				$(function(){
+					$("#verify").click(function(){
+						$(this).attr("src", "/Admin/Login/verify/"+Math.random());
+						});
+				});
+				
+				$(function(){
+					$("#sub_btn").click(function(){
+						var userid = $("input[name='username']").val();
+						var userpwd = $("input[name='pwd']").val();
+						var checkcode = $(".verify").val();
+						if(userid==""){
+							alert("账号不能为空!");
+							return false;
+						}
+						if(userpwd==""){
+							alert("密码不能为空!");
+							return false;
+						}
+						if(checkcode==""){
+							alert("验证码不能为空!");
+							
+							return false;
+						}
+						$.post(
+							'/Admin/Login/login',
+							{
+								userid:userid,
+								userpwd:userpwd,
+								logincode:checkcode
+							},
+							function(data){
+								if(data==1){
+									window.location.href="<?php echo U('Index/index');?>";//跳转到首页
+								}else if(data==2){
+									alert("验证码错误!");
+									$("#verify").click();
+									return false;
+								}else if(data==3){
+									alert("账号错误!");
+									return false;
+								}else if(data==4){
+									alert("账号或密码错误!");
+									return false;
+								}
+							}
+						);
+					});
+				})
+				</script>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+	<div id="login_bottom">
+		版权所有
+	</div>
+</body>
+</html>

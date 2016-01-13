@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
+                <title>比特币兑换商店-买比特币</title>
+  
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/total.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mai.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/email.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/tubiao/demo.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/tubiao/iconfont.css">
+		 <script type="text/javascript">
+			(function () {
+						var user = null;
+						window.getUser = function () {
+					return user;
+				};
+			})();
+		</script>
+		<script src="__PUBLIC__/js/jquery.min.js"></script>
+		<script type="text/javascript"> function baseUrl() {return '/';}</script>
+		<script type="text/javascript" src="__PUBLIC__/js/libs.min.js"></script>
+
+
+    </head>
+        <body class="landing">
+        <section class="fukuan email_a">
+   
+        <ul class="youjian">
+        <li class="maijin_aa">
+        <i class="icon iconfont">&#xe603;</i>
+        <i class="icon iconfont">&#xe606;</i>
+        <i class="icon iconfont">&#xf0191;</i>
+        </li>
+       <li>您好，欢迎您使用BEBTC比特币商店的服务，请核对订单内容是否正确： </li>
+	     <li class="yj">您的订单号：{$list.num}</li>
+       <li class="yj">您卖出的数量是：{$list.amount}</li>
+       <li class="yj">您的成交总价是：{$list.sale_total}</li>
+       <li class="yj" style="text-indent:2em;">您的姓名是：{$list.sale_name}</li>
+       <li class="yj" style="text-indent:1em;">您的开户行是：{$bank_name.bank_name}</li>
+       <li class="yj">您的收款账号是：{$list.bank_account}</li>
+	   
+       <li>确认信息准确无误后请将足额的比特币打到我们的钱包，钱包地址为：{$list.wallet}</li>
+      </ul>
+
+
+</section>
+
+
+    </body>
+</html>
+ 
